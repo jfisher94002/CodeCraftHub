@@ -6,13 +6,13 @@ require('dotenv').config();
 
 const app = express();
 
-// Middleware
+// Middleware to parse JSON request bodies
 app.use(bodyParser.json());
 
-// Routes
+// User routes
 app.use('/api/users', userRoutes);
 
-// Database connection
+// Connect to the database
 connectDB();
 
 module.exports = app;

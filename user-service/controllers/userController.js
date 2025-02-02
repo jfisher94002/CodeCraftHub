@@ -3,6 +3,11 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 require('dotenv').config();
 
+/**
+ * Register a new user
+ * @param {Object} req - Express request object
+ * @param {Object} res - Express response object
+ */
 exports.register = async (req, res) => {
   try {
     const { username, email, password } = req.body;
@@ -18,6 +23,11 @@ exports.register = async (req, res) => {
   }
 };
 
+/**
+ * Login an existing user
+ * @param {Object} req - Express request object
+ * @param {Object} res - Express response object
+ */
 exports.login = async (req, res) => {
   try {
     const { email, password } = req.body;
