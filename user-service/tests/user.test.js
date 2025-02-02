@@ -4,10 +4,7 @@ const mongoose = require('mongoose');
 const User = require('../src/models/userModel');
 
 beforeAll(async () => {
-    await mongoose.connect(process.env.MONGODB_URI, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    });
+    await mongoose.connect(process.env.MONGODB_URI);
 });
 
 afterAll(async () => {
@@ -25,7 +22,7 @@ describe('User Service', () => {
                 password: 'password123',
             });
         expect(response.statusCode).toBe(201);
-        expect(response.body.message).toBe('User created successfully');
+        expect(response.body.message).toBe('User registered successfully');
     });
 
     it('should login an existing user', async () => {
